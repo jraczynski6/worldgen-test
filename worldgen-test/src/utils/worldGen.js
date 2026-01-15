@@ -1,29 +1,50 @@
 // Prefixes with weights
 const prefixes = [
-  { value: "Au", weight: 5 },
-  { value: "Lu", weight: 4 },
-  { value: "Si", weight: 3 },
-  { value: "Va", weight: 3 },
-  { value: "No", weight: 2 },
-  { value: "Flu", weight: 2 },
-  { value: "Cae", weight: 2 },
-  { value: "Bra", weight: 1 },
-  { value: "Ste", weight: 1 },
-  { value: "Ma", weight: 1 }
+
+    // Elf prefixes
+    { value: "Ae", type: "Elf", weight: 5 },
+    { value: "Eri", type: "Elf", weight: 5 },
+    { value: "Syl", type: "Elf", weight: 5 },
+    { value: "Alth", type: "Elf", weight: 5 },
+    { value: "Vae", type: "Elf", weight: 5 },
+
+    // Human prefixes
+    { value: "Bor", type: "Human", weight: 3 },
+    { value: "Ro", type: "Human", weight: 3 },
+    { value: "Har", type: "Human", weight: 3 },
+    { value: "Cor", type: "Human", weight: 3 },
+    { value: "Ed", type: "Human", weight: 3 },
+
+    // Dwarf prefixes
+    { value: "Dur", type: "Dwarf", weight: 1 },
+    { value: "Kil", type: "Dwarf", weight: 1 },
+    { value: "Brum", type: "Dwarf", weight: 1 },
+    { value: "Gar", type: "Dwarf", weight: 1 },
+    { value: "Bal", type: "Dwarf", weight: 1 }
 ];
 
 // Suffixes with weights
-const Suffixes = [
-  { value: "relia", weight: 5 },
-  { value: "nara", weight: 4 },
-  { value: "vara", weight: 3 },
-  { value: "lora", weight: 3 },
-  { value: "tira", weight: 2 },
-  { value: "via", weight: 2 },
-  { value: "oria", weight: 2 },
-  { value: "vante", weight: 1 },
-  { value: "llara", weight: 1 },
-  { value: "velle", weight: 1 }
+const suffixes = [
+    // Elf suffixes
+    { value: "wyn", type: "Elf", weight: 5 },
+    { value: "riel", type: "Elf", weight: 5 },
+    { value: "lith", type: "Elf", weight: 5 },
+    { value: "elith", type: "Elf", weight: 5 },
+    { value: "nael", type: "Elf", weight: 5 },
+
+    // Human suffixes
+    { value: "ora", type: "Human", weight: 3 },
+    { value: "ara", type: "Human", weight: 3 },
+    { value: "ine", type: "Human", weight: 3 },
+    { value: "arae", type: "Human", weight: 3 },
+    { value: "eva", type: "Human", weight: 3 },
+
+    // Dwarf suffixes
+    { value: "mir", type: "Dwarf", weight: 1 },
+    { value: "bek", type: "Dwarf", weight: 1 },
+    { value: "drin", type: "Dwarf", weight: 1 },
+    { value: "karr", type: "Dwarf", weight: 1 },
+    { value: "gorn", type: "Dwarf", weight: 1 }
 ];
 
 function weightedRandom(items) {
@@ -49,13 +70,14 @@ function weightedRandom(items) {
 
 export function generateWorldName() {
     const prefix = weightedRandom(prefixes);
-    const Suffix = weightedRandom(Suffixes);
-  return prefix + Suffix;
+    const suffix = weightedRandom(Suffixes);
+    return prefix + suffix;
 }
 
 
 export function generateWorldSummary() {
-  // TODO: implement weighted random logic
-  // Return a string representing a short two-sentence summary
-  return "This is a placeholder summary. Replace me with real content.";
+    // TODO: implement weighted random logic
+    // world.prefixType + world.suffixType → determine summary template pool
+    // weightedRandom from that pool → return summary
+    return "This is a placeholder summary. Replace me with real content.";
 }
