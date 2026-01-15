@@ -1,50 +1,49 @@
 // Prefixes with weights
 const prefixes = [
+  // Elf prefixes (weight 3) 3 / 8 ≈ 37.5%
+  { value: "Ae", type: "Elf", weight: 3 },
+  { value: "Eri", type: "Elf", weight: 3 },
+  { value: "Syl", type: "Elf", weight: 3 },
+  { value: "Alth", type: "Elf", weight: 3 },
+  { value: "Vae", type: "Elf", weight: 3 },
 
-    // Elf prefixes
-    { value: "Ae", type: "Elf", weight: 5 },
-    { value: "Eri", type: "Elf", weight: 5 },
-    { value: "Syl", type: "Elf", weight: 5 },
-    { value: "Alth", type: "Elf", weight: 5 },
-    { value: "Vae", type: "Elf", weight: 5 },
+  // Human prefixes (weight 3) 3 / 8 ≈ 37.5%
+  { value: "Bor", type: "Human", weight: 3 },
+  { value: "Ro", type: "Human", weight: 3 },
+  { value: "Har", type: "Human", weight: 3 },
+  { value: "Cor", type: "Human", weight: 3 },
+  { value: "Ed", type: "Human", weight: 3 },
 
-    // Human prefixes
-    { value: "Bor", type: "Human", weight: 3 },
-    { value: "Ro", type: "Human", weight: 3 },
-    { value: "Har", type: "Human", weight: 3 },
-    { value: "Cor", type: "Human", weight: 3 },
-    { value: "Ed", type: "Human", weight: 3 },
-
-    // Dwarf prefixes
-    { value: "Dur", type: "Dwarf", weight: 1 },
-    { value: "Kil", type: "Dwarf", weight: 1 },
-    { value: "Brum", type: "Dwarf", weight: 1 },
-    { value: "Gar", type: "Dwarf", weight: 1 },
-    { value: "Bal", type: "Dwarf", weight: 1 }
+  // Dwarf prefixes (weight 2) 2 / 8 = 25%
+  { value: "Dur", type: "Dwarf", weight: 2 },
+  { value: "Kil", type: "Dwarf", weight: 2 },
+  { value: "Brum", type: "Dwarf", weight: 2 },
+  { value: "Gar", type: "Dwarf", weight: 2 },
+  { value: "Bal", type: "Dwarf", weight: 2 }
 ];
 
 // Suffixes with weights
 const suffixes = [
-    // Elf suffixes
-    { value: "wyn", type: "Elf", weight: 5 },
-    { value: "riel", type: "Elf", weight: 5 },
-    { value: "lith", type: "Elf", weight: 5 },
-    { value: "elith", type: "Elf", weight: 5 },
-    { value: "nael", type: "Elf", weight: 5 },
+  // Elf suffixes (weight 3) 3 / 8 ≈ 37.5%
+  { value: "wyn", type: "Elf", weight: 3 },
+  { value: "riel", type: "Elf", weight: 3 },
+  { value: "lith", type: "Elf", weight: 3 },
+  { value: "elith", type: "Elf", weight: 3 },
+  { value: "nael", type: "Elf", weight: 3 },
 
-    // Human suffixes
-    { value: "ora", type: "Human", weight: 3 },
-    { value: "ara", type: "Human", weight: 3 },
-    { value: "ine", type: "Human", weight: 3 },
-    { value: "arae", type: "Human", weight: 3 },
-    { value: "eva", type: "Human", weight: 3 },
+  // Human suffixes (weight 3) 3 / 8 ≈ 37.5%
+  { value: "ora", type: "Human", weight: 3 },
+  { value: "ara", type: "Human", weight: 3 },
+  { value: "ine", type: "Human", weight: 3 },
+  { value: "arae", type: "Human", weight: 3 },
+  { value: "eva", type: "Human", weight: 3 },
 
-    // Dwarf suffixes
-    { value: "mir", type: "Dwarf", weight: 1 },
-    { value: "bek", type: "Dwarf", weight: 1 },
-    { value: "drin", type: "Dwarf", weight: 1 },
-    { value: "karr", type: "Dwarf", weight: 1 },
-    { value: "gorn", type: "Dwarf", weight: 1 }
+  // Dwarf suffixes (weight 2) 2 / 8 = 25%
+  { value: "mir", type: "Dwarf", weight: 2 },
+  { value: "bek", type: "Dwarf", weight: 2 },
+  { value: "drin", type: "Dwarf", weight: 2 },
+  { value: "karr", type: "Dwarf", weight: 2 },
+  { value: "gorn", type: "Dwarf", weight: 2 }
 ];
 
 function weightedRandom(items) {
