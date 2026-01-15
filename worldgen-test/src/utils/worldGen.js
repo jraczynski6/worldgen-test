@@ -1,30 +1,4 @@
-// Prefixes with weights
-const prefixes = [
-  { value: "Au", weight: 5 },
-  { value: "Lu", weight: 4 },
-  { value: "Si", weight: 3 },
-  { value: "Va", weight: 3 },
-  { value: "No", weight: 2 },
-  { value: "Flu", weight: 2 },
-  { value: "Cae", weight: 2 },
-  { value: "Bra", weight: 1 },
-  { value: "Ste", weight: 1 },
-  { value: "Ma", weight: 1 }
-];
-
-// Suffixes with weights
-const Suffixes = [
-  { value: "relia", weight: 5 },
-  { value: "nara", weight: 4 },
-  { value: "vara", weight: 3 },
-  { value: "lora", weight: 3 },
-  { value: "tira", weight: 2 },
-  { value: "via", weight: 2 },
-  { value: "oria", weight: 2 },
-  { value: "vante", weight: 1 },
-  { value: "llara", weight: 1 },
-  { value: "velle", weight: 1 }
-];
+import { prefixes, suffixes, prefixSentences, suffixSentences } from "./worldData";
 
 function weightedRandom(items) {
     // Calculate the sum of all weights in the array
@@ -42,20 +16,42 @@ function weightedRandom(items) {
         // If the random number is now zero or less,
         // it means the current item is the selected one
         if (random <= 0) {
-            return item.value;
+            return item;
         }
     }
 }
 
 export function generateWorldName() {
     const prefix = weightedRandom(prefixes);
-    const Suffix = weightedRandom(Suffixes);
-  return prefix + Suffix;
+    const suffix = weightedRandom(suffixes);
+
+    // Return a structured object containing:
+    // - the combined world name
+    // - the full prefix object (value, type, weight)
+    // - the full suffix object (value, type, weight)
+    return {
+        name: prefix.value + suffix.value,
+        prefix, // object: { value, type, weight }
+        suffix  // object: { value, type, weight }
+    };
 }
 
+// Generate a two-sentence summary based on the types of the selected prefix and suffix
+export function generateWorldSummary(world) {
+    const prefixSentencePool = prefixSentences[world.prefix.type];
+    const suffixSentencePool = suffixSentences[world.suffix.type];
 
-export function generateWorldSummary() {
-  // TODO: implement weighted random logic
-  // Return a string representing a short two-sentence summary
-  return "This is a placeholder summary. Replace me with real content.";
+    // Pick a random sentence from the array: Math.random() generates 0–1, multiply by array length, 
+    // Math.floor rounds down to get a valid array index
+    const prefixSentence =
+        prefixSentencePool[Math.floor(Math.random() * prefixSentencePool.length)];
+    const suffixSentence =
+        suffixSentencePool[Math.floor(Math.random() * suffixSentencePool.length)];
+
+    return `${prefixSentence} ${suffixSentence}`;
 }
+
+//TODO: Sentence pools - add grammar logic and dynamic assembly
+//TODO: combined prefix/suffix flavor effects - blending prefixes/suffixes probabilistically and adjusting tone based on combined weights.
+//TODO: Add rare traits
+//TODO: weight-influenced summary sentences, Right now, weight influences only name selection, not summary style or uniqueness.
