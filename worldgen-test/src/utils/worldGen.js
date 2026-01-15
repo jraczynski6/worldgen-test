@@ -63,17 +63,25 @@ function weightedRandom(items) {
         // If the random number is now zero or less,
         // it means the current item is the selected one
         if (random <= 0) {
-            return item.value;
+            return item;
         }
     }
 }
 
 export function generateWorldName() {
     const prefix = weightedRandom(prefixes);
-    const suffix = weightedRandom(Suffixes);
-    return prefix + suffix;
-}
+    const suffix = weightedRandom(suffixes);
 
+    // Return a structured object containing:
+    // - the combined world name
+    // - the full prefix object (value, type, weight)
+    // - the full suffix object (value, type, weight)
+    return {
+        name: prefix.value + suffix.value,
+        prefix, // object: { value, type, weight }
+        suffix  // object: { value, type, weight }
+    };
+}
 
 export function generateWorldSummary() {
     // TODO: implement weighted random logic
