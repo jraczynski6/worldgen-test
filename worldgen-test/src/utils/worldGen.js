@@ -118,10 +118,13 @@ export function generateWorldName() {
     };
 }
 
+// Generate a two-sentence summary based on the types of the selected prefix and suffix
 export function generateWorldSummary(world) {
     const prefixSentencePool = prefixSentences[world.prefix.type];
     const suffixSentencePool = suffixSentences[world.suffix.type];
 
+    // Pick a random sentence from the array: Math.random() generates 0–1, multiply by array length, 
+    // Math.floor rounds down to get a valid array index
     const prefixSentence =
         prefixSentencePool[Math.floor(Math.random() * prefixSentencePool.length)];
     const suffixSentence =
