@@ -29,6 +29,7 @@ const Suffixes = [
 function weightedRandom(items) {
     // Calculate the sum of all weights in the array
     // This represents the total “range” for our random selection
+    // reduce - processes all the elements in a collection and "reduces" them into a single value
     const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
     // Generate a random number between 0 and totalWeight
     // This number determines which item will be selected
@@ -36,6 +37,7 @@ function weightedRandom(items) {
 
     for (let item of items) {
         // Subtract the current item's weight from the random number
+        // -= = assignment operator, subtract and assign
         random -= item.weight;
         // If the random number is now zero or less,
         // it means the current item is the selected one
