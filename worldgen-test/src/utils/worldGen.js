@@ -132,3 +132,8 @@ export function generateWorldSummary(world) {
 
     return `${prefixSentence} ${suffixSentence}`;
 }
+
+//TODO: Sentence pools - add grammar logic and dynamic assembly
+//TODO: combined prefix/suffix flavor effects - blending prefixes/suffixes probabilistically and adjusting tone based on combined weights.
+//TODO: Add rare traits
+//TODO: weight-influenced summary sentences, Right now, weight influences only name selection, not summary style or uniqueness.
